@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Autofac;
 using FilesSizeByExtensions.FileExtensions;
 using FilesSizeByExtensions.SpaceCalculator;
@@ -12,7 +10,7 @@ namespace FileExtensions
         private static string files = "1 music.mp3 45b\nmusic.wma 56b\nmusic.wav 56b\nimages.png 67b\nimages.gif 45b\nimages.jpeg 10b\nvideo.mov 98b\nvideo.flv 34b\nvideo.mp4 67b\nother.zip 45b\nother.rar 90b\nother.mix 67b";
         static void Main(string[] args)
         {
-            var container = CreateContainer();
+            var container = Container();
             var extensions = container.Resolve<IExtensions>();
             var fileSpaceCalculator = container.Resolve<IFileSpaceCalculator>();
 
@@ -24,8 +22,8 @@ namespace FileExtensions
             Display(musicSpace, imagesSpace, videosSpace, otherSpace);
             Console.ReadKey();
         }
-        
-        private static IContainer CreateContainer()
+
+        private static IContainer Container()
         {
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterModule<Modules>();

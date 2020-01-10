@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using FilesSizeByExtensions.Formatting;
@@ -7,7 +6,7 @@ namespace FilesSizeByExtensions.SpaceCalculator
 {
     public class FileSpaceCalculator : IFileSpaceCalculator
     {
-        private IFormatter _formatter;
+        private readonly IFormatter _formatter;
 
         public FileSpaceCalculator(IFormatter formatter)
         {
